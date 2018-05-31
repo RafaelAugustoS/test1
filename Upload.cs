@@ -8,11 +8,9 @@ public async Task<HttpResponseMessage> PostUserImage()
     foreach (string file in httpRequest.Files)
     {
         var postedFile = httpRequest.Files[file];
-        //postedFile.InputStream.Read()
 
         var strReader = new System.IO.StreamReader(postedFile.InputStream);
 
-        //var strWriter = new System.IO.StreamWriter(postedFile.InputStream);
         using (StreamReader readStream = new StreamReader(postedFile.InputStream, Encoding.UTF8))
         {
             var documentContents = readStream.ReadToEnd();
